@@ -84,20 +84,20 @@ class HomeController extends Controller
 
   public function search(Request $request)
   {
-      $query = $request->input('query');
-      $filter = $request->input('filter');
+    $query = $request->input('query');
+    $filter = $request->input('filter');
 
-      // jadiin lowercase
-      $query = strtolower($query);
+    // jadiin lowercase
+    $query = strtolower($query);
 
-      if (!empty($query)) {
-          $allReferences = $this->database->getReference($this->tablename)
-                              ->orderByChild('merk')
-                              ->getValue();
+    if (!empty($query)) {
+      $allReferences = $this->database->getReference($this->tablename)
+        ->orderByChild('merk')
+        ->getValue();
 
       // nyari yang merknya mengandung kata kunci, nggak peduli huruf besar atau kecil
       $references = array_filter($allReferences, function ($item) use ($query) {
-          return strpos(strtolower($item['merk']), $query) !== false;
+        return strpos(strtolower($item['merk']), $query) !== false;
       });
 
       // Filter hasil pencarian berdasarkan kondisi jika filter tersedia
