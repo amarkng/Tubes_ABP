@@ -2,23 +2,35 @@
 
 @section('navbar_home')
     @guest
+        <li class="nav-item">
+            <a class="nav-link text-dark" href="{{ url('/home') }}">Home</a>
+        </li>
+
         @if (Route::has('login'))
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                <a class="nav-link text-dark" href="{{ route('login') }}">{{ __('Login') }}</a>
             </li>
         @endif
 
         @if (Route::has('register'))
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                <a class="nav-link text-dark" href="{{ route('register') }}">{{ __('Register') }}</a>
             </li>
         @endif
+
     @else
+        @if ($user->customClaims['admin'] == false)
+            <li class="nav-item">
+                <a class="nav-link text-dark" href="/home/iamadmin">Become Seller</a>
+            </li>
+        @endif
+
         @if ($user->customClaims['admin'])
             <li class="nav-item">
-                <a class="nav-link text-dark" href="/home/admin">{{ __('Seller') }}</a>
+                <a class="nav-link text-dark" href="/home/cars">{{ __('Seller Menu') }}</a>
             </li>
         @endif
+        
 
         <li class="nav-item">
             <a class="nav-link text-dark" href="/home/profile">{{ __('Profile') }}</a>
@@ -34,11 +46,7 @@
                 @csrf
             </form>
         </li>
-        @if ($user->customClaims['admin'] == false)
-            <li class="nav-item">
-                <a class="nav-link text-dark" href="/home/iamadmin">Become Seller</a>
-            </li>
-        @endif
+        
     @endguest
 @endsection
 
@@ -97,6 +105,7 @@
                         </h4>
                     </div>
                 </div>
+
             </div>
         </div>
 
@@ -118,12 +127,11 @@
                                     <div class="badge badge-accent">USED</div>
                                 @endif
                             </h2>
-                            <p class="text-sm text-black">Harga : Rp. {{ $item['harga'] }}</p>
+                            <p class="text-sm text-black">Price : Rp. {{ $item['harga'] }}</p>
                             <div class="flex justify-end mt-1">
                                 <a href="{{ url('/home/product_details/' . $key) }}"
                                     class="btn btn-sm btn-ghost">Details</a>
                             </div>
-
                         </div>
                     </div>
                 </div>

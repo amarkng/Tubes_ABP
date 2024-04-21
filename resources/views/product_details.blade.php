@@ -3,23 +3,24 @@
     @guest
         @if (Route::has('login'))
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                <a class="nav-link text-dark" href="{{ route('login') }}">{{ __('Login') }}</a>
             </li>
         @endif
 
         @if (Route::has('register'))
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                <a class="nav-link text-dark" href="{{ route('register') }}">{{ __('Register') }}</a>
             </li>
         @endif
     @else
         <li class="nav-item">
+            <a class="nav-link text-dark" href="{{ url('/home') }}">Home</a>
+        </li>
+        
+        <li class="nav-item">
             <a class="nav-link text-dark" href="/home/profile">{{ __('Profile') }}</a>
         </li>
 
-        <li class="nav-item">
-            <a class="nav-link text-dark" href="{{ url('/home') }}">Home</a>
-        </li>
 
         <li class="nav-item">
             <a class="nav-link text-dark active" href="{{ route('logout') }}"
@@ -106,7 +107,7 @@
                         </div>
                     </div>
                     <div class="card-footer text-right">
-                        <a href="{{ route('home') }}" class="btn btn-sm btn-ghost">Back</a>
+                        <a href="{{ route('home') }}" class="btn btn-outline">Back</a>
                     </div>
                 </div>
             </div>

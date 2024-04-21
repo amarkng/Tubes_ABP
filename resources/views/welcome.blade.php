@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('navbar_home')
     @if (Route::has('login'))
+    
         @auth
             <li class="nav-item">
                 <a class="nav-link text-dark" href="{{ url('/home') }}">Home</a>

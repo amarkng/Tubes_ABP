@@ -14,11 +14,11 @@
         @endif
     @else
         <li class="nav-item">
-            <a class="nav-link text-dark" href="/home/profile">{{ __('Profile') }}</a>
+            <a class="nav-link text-dark" href="{{ url('/home') }}">Home</a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link text-dark" href="{{ url('/home') }}">Home</a>
+            <a class="nav-link text-dark" href="/home/profile">{{ __('Profile') }}</a>
         </li>
 
         <li class="nav-item">
@@ -62,7 +62,7 @@
             <div class="card">
                 <div class="card-header">
                     <h4 class="text-lg font-semibold">Add New Car
-                        <a href="{{ route('cars') }}" class="btn btn-sm btn-ghost float-end">Back</a>
+                        <a href="{{ route('cars') }}" class="btn btn-sm btn-error float-end">Back</a>
                     </h4>
                 </div>
             </div>

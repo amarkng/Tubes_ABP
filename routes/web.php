@@ -35,9 +35,10 @@ Route::resource('/home/profile', App\Http\Controllers\Auth\ProfileController::cl
 
 Route::resource('/home/admin', App\Http\Controllers\Auth\AdminController::class)->middleware(['user', 'fireauth']);
 
-Route::middleware(['auth', 'fireauth'])->group(function () {
-    Route::get('/search', [App\Http\Controllers\HomeController::class, 'search'])->name('search');
+Route::get('/search', [App\Http\Controllers\HomeController::class, 'search'])->name('search');
 
+Route::middleware(['auth', 'fireauth'])->group(function () {
+    
     Route::get('/home/cars', [App\Http\Controllers\Firebase\CarsController::class, 'index'])->name('cars');
     Route::get('/home/cars/add_cars', function () {
         return view('adminpage.add_cars');

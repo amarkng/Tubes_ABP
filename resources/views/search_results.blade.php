@@ -2,24 +2,28 @@
 
 @section('navbar_home')
     @guest
+        <li class="nav-item">
+            <a class="nav-link text-dark" href="{{ url('/home') }}">Home</a>
+        </li>
+
         @if (Route::has('login'))
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                <a class="nav-link text-dark" href="{{ route('login') }}">{{ __('Login') }}</a>
             </li>
         @endif
 
         @if (Route::has('register'))
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                <a class="nav-link text-dark" href="{{ route('register') }}">{{ __('Register') }}</a>
             </li>
         @endif
     @else
         <li class="nav-item">
-            <a class="nav-link text-dark" href="/home/profile">{{ __('Profile') }}</a>
+            <a class="nav-link text-dark" href="{{ url('/home') }}">Home</a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link text-dark" href="{{ url('/home') }}">Home</a>
+            <a class="nav-link text-dark" href="/home/profile">{{ __('Profile') }}</a>
         </li>
 
         <li class="nav-item">

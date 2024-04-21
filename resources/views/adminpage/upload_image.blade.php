@@ -13,12 +13,14 @@
             </li>
         @endif
     @else
+        
         <li class="nav-item">
-            <a class="nav-link text-dark" href="/home/profile">{{ __('Profile') }}</a>
+            <a class="nav-link text-dark" href="/home/cars">{{ __('Seller Menu') }}</a>
         </li>
+        
 
         <li class="nav-item">
-            <a class="nav-link text-dark" href="{{ url('/home') }}">Home</a>
+            <a class="nav-link text-dark" href="/home/profile">{{ __('Profile') }}</a>
         </li>
 
         <li class="nav-item">
