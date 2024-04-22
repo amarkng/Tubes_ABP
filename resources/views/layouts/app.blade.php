@@ -9,14 +9,13 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('BaroCars', 'BaroCars') }}</title>
-    <link rel="shortcut icon" href="{{ URL('..\admin_assets\img\favicon.png') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ URL('..\resources\favicon.png') }}" type="image/x-icon">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
-
-    <!-- Styles -->
-    <link href="{{ asset('admin_assets/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
 
     <!-- ini bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -31,7 +30,7 @@
     <!-- ini daisyUI tailwindcss -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.9.0/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
@@ -40,6 +39,7 @@
 
 <!-- <body style="min-height:90vh;">
     <div id="app"> -->
+
 <body class="flex flex-col min-h-screen">
     <div id="app" class="flex-grow">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
@@ -56,7 +56,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                        
+
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -73,11 +73,11 @@
             @yield('content')
         </main>
     </div>
-    
+
     <footer class="footer footer-center p-4 bg-base-300 text-base-content">
         <aside class="items-center grid-flow-col">
-            <p>© 2024 - All right reserved by BaroCars Team ❤️</p> 
-        </aside> 
+            <p>© 2024 - All right reserved by BaroCars Team ❤️</p>
+        </aside>
     </footer>
 
 </body>

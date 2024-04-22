@@ -17,7 +17,6 @@
                 <a class="nav-link text-dark" href="{{ route('register') }}">{{ __('Register') }}</a>
             </li>
         @endif
-
     @else
         @if ($user->customClaims['admin'] == false)
             <li class="nav-item">
@@ -30,7 +29,7 @@
                 <a class="nav-link text-dark" href="/home/cars">{{ __('Seller Menu') }}</a>
             </li>
         @endif
-        
+
 
         <li class="nav-item">
             <a class="nav-link text-dark" href="/home/profile">{{ __('Profile') }}</a>
@@ -46,7 +45,7 @@
                 @csrf
             </form>
         </li>
-        
+
     @endguest
 @endsection
 
