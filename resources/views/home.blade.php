@@ -87,13 +87,43 @@
                         </select>
 
                         <div class="indicator">
-                            <button class="btn btn-outline btn-info" type="submit">Search</button>
+                            <button class="btn btn-outline-info" type="submit">Search</button>
                         </div>
 
                     </div>
                 </form>
 
-                <div class="card-1">
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img class="d-block w-100" src="{{ asset('admin_assets/img/carousel1.jpg') }}"
+                                alt="First slide">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="{{ asset('admin_assets/img/carousel2.jpg') }}"
+                                alt="Second slide">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="{{ asset('admin_assets/img/carousel3.jpg') }}"
+                                alt="Third slide">
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+
+                <div class="card-1 mt-4">
                     <div class="card-header">
                         <h4 class="text-lg font-semibold" style="margin-left: 3rem; margin-right: 3rem;">Cars List
                             @guest
@@ -109,7 +139,6 @@
         </div>
 
         <!-- Cards Section -->
-
         <div class="row mt-4">
             @forelse($pagedPaginator->items() as $key => $item)
                 <div class="col-md-4 mb-4">
@@ -121,9 +150,9 @@
                             <h2 class="text-xl font-semibold">{{ ucwords($item['merk']) }} {{ $item['model'] }}
                                 ({{ $item['tahun_pembuatan'] }})
                                 @if ($item['kondisi'] == 'Baru')
-                                    <div class="badge badge-secondary">NEW</div>
+                                    <span class="badge badge-pill badge-danger">NEW</span>
                                 @else
-                                    <div class="badge badge-accent">USED</div>
+                                    <span class="badge badge-pill badge-info">USED</span>
                                 @endif
                             </h2>
                             <p class="text-sm text-black">Price : Rp. {{ $item['harga'] }}</p>
@@ -139,35 +168,48 @@
                     <p class="text-center">No Record Found</p>
                 </div>
             @endforelse
-
         </div>
-        <!-- pagination nih -->
-        <div class="join col-md-12 justify-center">
-            {{-- Previous Page Link --}}
-            @if ($pagedPaginator->onFirstPage())
-                <button class="join-item btn">&laquo;</button>
-            @else
-                <button class="join-item btn"
-                    onclick="window.location='{{ $pagedPaginator->previousPageUrl() }}'">&laquo;</button>
-            @endif
 
-            {{-- Pagination Elements --}}
-            @foreach ($pagedPaginator->getUrlRange(1, $pagedPaginator->lastPage()) as $page => $url)
-                @if ($page == $pagedPaginator->currentPage())
-                    <button class="join-item btn btn-active">{{ $page }}</button>
-                @else
-                    <button class="join-item btn"
-                        onclick="window.location='{{ $url }}'">{{ $page }}</button>
-                @endif
-            @endforeach
+        <!-- Pagination -->
+        <div class="row mt-4">
+            <div class="col-md-12 d-flex justify-content-center">
+                <nav aria-label="Page navigation">
+                    <ul class="pagination">
 
-            {{-- Next Page Link --}}
-            @if ($pagedPaginator->hasMorePages())
-                <button class="join-item btn"
-                    onclick="window.location='{{ $pagedPaginator->nextPageUrl() }}'">&raquo;</button>
-            @else
-                <button class="join-item btn">&raquo;</button>
-            @endif
+                        {{-- Previous Page Link --}}
+                        @if ($pagedPaginator->onFirstPage())
+                            <li class="page-item disabled">
+                                <button class="page-link bg-dark" aria-disabled="true">&laquo;</button>
+                            </li>
+                        @else
+                            <li class="page-item">
+                                <button class="page-link bg-dark text-light"
+                                    onclick="window.location='{{ $pagedPaginator->previousPageUrl() }}'">&laquo;</button>
+                            </li>
+                        @endif
+
+                        {{-- Pagination Elements --}}
+                        @foreach ($pagedPaginator->getUrlRange(1, $pagedPaginator->lastPage()) as $page => $url)
+                            <li class="page-item {{ $page == $pagedPaginator->currentPage() ? 'active' : '' }}">
+                                <button class="page-link bg-dark text-light"
+                                    onclick="window.location='{{ $url }}'">{{ $page }}</button>
+                            </li>
+                        @endforeach
+
+                        {{-- Next Page Link --}}
+                        @if ($pagedPaginator->hasMorePages())
+                            <li class="page-item">
+                                <button class="page-link bg-dark text-light"
+                                    onclick="window.location='{{ $pagedPaginator->nextPageUrl() }}'">&raquo;</button>
+                            </li>
+                        @else
+                            <li class="page-item disabled">
+                                <button class="page-link bg-dark" aria-disabled="true">&raquo;</button>
+                            </li>
+                        @endif
+                    </ul>
+                </nav>
+            </div>
         </div>
 
     </div>

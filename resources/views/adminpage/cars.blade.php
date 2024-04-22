@@ -165,7 +165,9 @@
                                             <td>{{ $item['transmisi'] }}</td>
                                             <td>{{ $item['warna'] }}</td>
                                             <td>{{ $item['harga'] }}</td>
-                                            <td style="max-width: 185px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{{ $item['deskripsi'] }}</td>
+                                            <td
+                                                style="max-width: 185px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                                                {{ $item['deskripsi'] }}</td>
                                             <td>{{ $item['kontak_penjual'] }}</td>
                                             <td>
                                                 <a href="{{ url('/home/cars/edit_cars/' . $key) }}"
@@ -176,7 +178,7 @@
                                                     onsubmit="return confirm('Apakah Anda yakin ingin menghapus data ini?')">
                                                     @csrf
                                                     @method('delete')
-                                                    <button type="submit" class="btn btn-sm btn-error">Delete</button>
+                                                    <button type="submit" class="btn btn-sm btn-danger">Delete</button>
                                                 </form>
                                             </td>
                                         @endif

@@ -62,7 +62,7 @@
             <div class="card">
                 <div class="card-header">
                     <h4 class="text-lg font-semibold">Add New Car
-                        <a href="{{ route('cars') }}" class="btn btn-sm btn-error float-end">Back</a>
+                        <a href="{{ route('cars') }}" class="btn btn-sm btn-outline-danger float-end">Back</a>
                     </h4>
                 </div>
             </div>
@@ -78,7 +78,7 @@
                         <div class="form-group">
                             <label class="input input-bordered flex items-center gap-2 bg-white">
                                 Merk
-                                {!! Form::text('merk', null, [  
+                                {!! Form::text('merk', null, [
                                     'required' => 'required',
                                     'class' => 'grow',
                                     'placeholder' => 'Toyota',
@@ -139,69 +139,72 @@
                             ]) !!}
                         </div>
 
-                    <div class="form-group">
-                        <label class="input input-bordered flex items-center gap-2 bg-white">
-                            Warna
-                            {!! Form::text('warna', null, [
-                                'required' => 'required',
-                                'class' => 'grow',
-                                'placeholder' => 'Merah',
-                            ]) !!}
-                        </label>
+                        <div class="form-group">
+                            <label class="input input-bordered flex items-center gap-2 bg-white">
+                                Warna
+                                {!! Form::text('warna', null, [
+                                    'required' => 'required',
+                                    'class' => 'grow',
+                                    'placeholder' => 'Merah',
+                                ]) !!}
+                            </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="input input-bordered flex items-center gap-2 bg-white">
+                                Harga
+                                {!! Form::text('harga', null, [
+                                    'required' => 'required',
+                                    'class' => 'grow',
+                                    'placeholder' => '50.000.000',
+                                ]) !!}
+                            </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="input input-bordered flex items-center gap-2 bg-white">
+                                Deskripsi (Jika tidak, isi "-")
+                                {!! Form::text('deskripsi', null, [
+                                    'required' => 'required',
+                                    'class' => 'grow',
+                                    'placeholder' => 'km 10.000, pajak hidup, service rutin',
+                                ]) !!}
+                            </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="input input-bordered flex items-center gap-2 bg-white">
+                                Kontak Penjual (WA)
+                                {!! Form::text('kontak_penjual', null, [
+                                    'required' => 'required',
+                                    'class' => 'grow',
+                                    'placeholder' => '08xxxxxxx',
+                                ]) !!}
+                            </label>
+                        </div>
                     </div>
 
-                    <div class="form-group">
-                        <label class="input input-bordered flex items-center gap-2 bg-white">
-                            Harga
-                            {!! Form::text('harga', null, [
-                                'required' => 'required',
-                                'class' => 'grow',
-                                'placeholder' => '50.000.000',
-                            ]) !!}
-                        </label>
+                    <div class="form-group text-center">
+                        {!! Form::submit('Add Cars', [
+                            'class' => 'btn btn-outline-info btn-wide',
+                            'onclick' => 'return confirmSubmission()',
+                        ]) !!}
                     </div>
 
-                    <div class="form-group">
-                        <label class="input input-bordered flex items-center gap-2 bg-white">
-                            Deskripsi (Jika tidak, isi "-") 
-                            {!! Form::text('deskripsi', null, [
-                                'required' => 'required',
-                                'class' => 'grow',
-                                'placeholder' => 'km 10.000, pajak hidup, service rutin',
-                            ]) !!}
-                        </label>
+                    <div class="form-group text-center">
+                        <button type="reset" class="btn btn-sm btn-outline-danger ">Reset</button>
                     </div>
 
-                    <div class="form-group">
-                        <label class="input input-bordered flex items-center gap-2 bg-white">
-                            Kontak Penjual (WA)
-                            {!! Form::text('kontak_penjual', null, [
-                                'required' => 'required',
-                                'class' => 'grow',
-                                'placeholder' => '08xxxxxxx',
-                            ]) !!}
-                        </label>
-                    </div>
+                    {!! Form::close() !!}
                 </div>
-
-                <div class="form-group text-center">
-                    {!! Form::submit('Add Cars', ['class' => 'btn btn-accent btn-wide', 'onclick' => 'return confirmSubmission()']) !!}
-                </div>
-
-                <div class="form-group text-center">
-                    <button type="reset" class="btn btn-sm btn-outline btn-error ">Reset</button>
-                </div>
-
-                {!! Form::close() !!}
-            </div>
-            <script>
-                // Menghapus placeholder saat input field diisi
-                document.querySelectorAll('.form-control').forEach(input => {
-                    input.addEventListener('input', () => {
-                        input.removeAttribute('placeholder');
+                <script>
+                    // Menghapus placeholder saat input field diisi
+                    document.querySelectorAll('.form-control').forEach(input => {
+                        input.addEventListener('input', () => {
+                            input.removeAttribute('placeholder');
+                        });
                     });
-                });
-            </script>
+                </script>
+            </div>
         </div>
-    </div>
-@endsection
+    @endsection

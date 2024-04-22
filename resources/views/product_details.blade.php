@@ -16,7 +16,7 @@
         <li class="nav-item">
             <a class="nav-link text-dark" href="{{ url('/home') }}">Home</a>
         </li>
-        
+
         <li class="nav-item">
             <a class="nav-link text-dark" href="/home/profile">{{ __('Profile') }}</a>
         </li>
@@ -37,11 +37,11 @@
 
 <!-- zoom  -->
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', function() {
         var image = document.getElementById('uploadedImage');
         var cardBody = image.closest('.card-body');
 
-        image.addEventListener('mousemove', function (e) {
+        image.addEventListener('mousemove', function(e) {
             var rect = cardBody.getBoundingClientRect();
             var scale = 1.5; // Adjust the zoom level as needed
             var offsetX = (e.clientX - rect.left) / rect.width;
@@ -51,7 +51,7 @@
             image.style.transform = 'scale(' + scale + ')';
         });
 
-        image.addEventListener('mouseleave', function () {
+        image.addEventListener('mouseleave', function() {
             image.style.transformOrigin = 'center';
             image.style.transform = 'scale(1)';
         });
@@ -101,13 +101,14 @@
                                 <p><strong>Deskripsi:</strong></br> {{ $car['deskripsi'] }}</p>
                                 <p><strong>Kontak Penjual:</strong></br> {{ $car['kontak_penjual'] }}</p>
                                 @if (isset($car['upload_timestamp']))
-                                    <p><strong>Waktu Unggah:</strong><br> {{ date('d-m-Y', strtotime($car['upload_timestamp'])) }} </p>
+                                    <p><strong>Waktu Unggah:</strong><br>
+                                        {{ date('d-m-Y', strtotime($car['upload_timestamp'])) }} </p>
                                 @endif
                             </div>
                         </div>
                     </div>
                     <div class="card-footer text-right">
-                        <a href="{{ route('home') }}" class="btn btn-outline">Back</a>
+                        <a href="{{ route('home') }}" class="btn btn-outline-danger">Back</a>
                     </div>
                 </div>
             </div>
