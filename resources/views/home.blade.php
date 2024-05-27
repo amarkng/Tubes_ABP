@@ -98,19 +98,24 @@
                         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
                         <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
                     </ol>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img class="d-block w-100" src="{{ asset('admin_assets/img/carousel1.jpg') }}"
-                                alt="First slide">
+                            <img class="d-block w-100" src="{{ asset('admin_assets/img/1.png') }}" alt="First slide">
                         </div>
                         <div class="carousel-item">
-                            <img class="d-block w-100" src="{{ asset('admin_assets/img/carousel2.jpg') }}"
-                                alt="Second slide">
+                            <img class="d-block w-100" src="{{ asset('admin_assets/img/2.png') }}" alt="Second slide">
                         </div>
                         <div class="carousel-item">
-                            <img class="d-block w-100" src="{{ asset('admin_assets/img/carousel3.jpg') }}"
-                                alt="Third slide">
+                            <img class="d-block w-100" src="{{ asset('admin_assets/img/3.png') }}" alt="Third slide">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="{{ asset('admin_assets/img/4.png') }}" alt="Fourth slide">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="{{ asset('admin_assets/img/5.png') }}" alt="Fifth slide">
                         </div>
                     </div>
                     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -158,7 +163,7 @@
                             <p class="text-sm text-black">Price : Rp. {{ $item['harga'] }}</p>
                             <div class="flex justify-end mt-1">
                                 <a href="{{ url('/home/product_details/' . $key) }}"
-                                    class="btn btn-sm btn-ghost">Details</a>
+                                    class="btn btn-sm btn-danger">Details</a>
                             </div>
                         </div>
                     </div>
